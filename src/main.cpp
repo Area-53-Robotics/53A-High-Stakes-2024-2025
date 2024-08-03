@@ -75,15 +75,38 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	while (true) {
-    // Drivetrain
-    // Arcade Drive
-    int left =
-        master.get_analog(ANALOG_LEFT_Y) + master.get_analog(ANALOG_RIGHT_X);
-    int right =
-        master.get_analog(ANALOG_LEFT_Y) - master.get_analog(ANALOG_RIGHT_X);
+	//Basic Power Variables
+	int max_power = 127;
+	int min_power = -127;
+	int no_power = 0;
 
-    left_motors.move(left);
-    right_motors.move(right);
+	//Piston Variables
+	int clampValue = false;
+
+	while (true) {
+    	// Drivetrain
+    	// Arcade Drive
+    	int left =
+        	master.get_analog(ANALOG_LEFT_Y) + master.get_analog(ANALOG_RIGHT_X);
+    	int right =
+        	master.get_analog(ANALOG_LEFT_Y) - master.get_analog(ANALOG_RIGHT_X);
+
+    	left_motors.move(left);
+    	right_motors.move(right);
+
+		// Controls Intake
+    	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+      		intake_motor.move(min_power);
+    	} else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
+      		intake_motor.move(max_power);
+    	} else {
+      		intake_motor.move(no_power);
+    	}
+
+		//Clamp Button
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+      		clampValue = !clampValue;
+      		clamp.set_value(clampValue);
+    	}
 	}
 }
