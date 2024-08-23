@@ -20,8 +20,8 @@ inline pros::Imu imu(10);
 
 //Rotational Sensor
 //DETERMINE REVERSAL WHEN ADDED TO BOT
-inline pros::Rotation horizontalTracking(1);
-inline pros::Rotation verticalTracking(1);
+inline pros::Rotation horizontalTracking(5);
+inline pros::Rotation verticalTracking(6);
 
 inline lemlib::Drivetrain drivetrain(&left_motors, // left motor group
                               &right_motors, // right motor group
