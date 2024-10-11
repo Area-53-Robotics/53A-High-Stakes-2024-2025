@@ -75,12 +75,24 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
+
+ASSET(test_txt);
+
 void autonomous() {
 	
 	chassis.setPose(0, 0, 0);
-	chassis.moveToPoint(0, -20, 3000);
+	chassis.follow(test_txt, 2, 5000, false);
+	/*
+	chassis.moveToPoint(0, -34, 3000, {.forwards = false});
+	*/
+	pros::delay(1000);
+
 	clampOn(true);
-	runIntake(true, 127);
+	runIntake(true, -127);
+	/*
+	chassis.turnToHeading(70, 3000);
+	chassis.moveToPoint(20, -20, 3000, {.forwards = true});
+	*/
 }
 
 /**
