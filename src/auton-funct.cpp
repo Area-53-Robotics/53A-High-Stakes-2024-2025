@@ -1,7 +1,6 @@
 #include "main.h"
 #include "devices.h"
 #include "auton.h"
-#include <cmath>
 
 void runIntake (bool running, int power) {
     if (running) {
@@ -15,8 +14,14 @@ void runIntake (bool running, int power) {
 
 }
 
-void clampOn (bool state) {
+void clampState (bool state) {
 
 	clamp.set_value(state);
 
+}
+
+void intakeState (bool state) {
+
+	intakePiston.set_value(state);
+	
 }

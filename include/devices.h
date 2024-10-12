@@ -14,6 +14,7 @@ inline pros::Motor intake_motor (10);
 
 //Pneumatics
 inline pros::adi::Pneumatics clamp('A', false);
+inline pros::adi::Pneumatics intakePiston('B', false);
 
 //Inertial Sensor
 inline pros::Imu imu(16);
@@ -44,9 +45,9 @@ inline lemlib::OdomSensors sensors(&vertical_tracking_wheel, // vertical trackin
 
 // lateral PID controller
 // lateral PID controller
-inline lemlib::ControllerSettings lateral_controller(10, // proportional gain (kP) 15
+inline lemlib::ControllerSettings lateral_controller(5, // proportional gain (kP) 15
                                               0, // integral gain (kI)
-                                              23, // derivative gain (kD) 15
+                                              20, // derivative gain (kD) 15
                                               3, // anti windup
                                               1, // small error range, in inches
                                               100, // small error range timeout, in milliseconds

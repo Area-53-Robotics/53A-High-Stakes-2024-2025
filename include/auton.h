@@ -2,4 +2,5 @@
 #include <type_traits>
 
 void runIntake(bool running, int power);
-void clampOn (bool state);
+void clampState (bool state);
+void intakeState (bool state);

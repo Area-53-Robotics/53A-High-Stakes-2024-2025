@@ -81,18 +81,18 @@ ASSET(test_txt);
 void autonomous() {
 	
 	chassis.setPose(0, 0, 0);
-	chassis.follow(test_txt, 2, 5000, false);
-	/*
-	chassis.moveToPoint(0, -34, 3000, {.forwards = false});
-	*/
-	pros::delay(1000);
-
-	clampOn(true);
+	//chassis.follow(test_txt, 1, 3000, false);
+	chassis.moveToPose(-10, -15, 10, 3000, {.forwards = false, .minSpeed = 40});
+	chassis.moveToPose(-2, -32, -20, 3000, {.forwards = false});
+	pros::delay(880);
+	clampState(true);
+	pros::delay(150);
 	runIntake(true, -127);
-	/*
-	chassis.turnToHeading(70, 3000);
-	chassis.moveToPoint(20, -20, 3000, {.forwards = true});
-	*/
+	pros::delay(200);
+	chassis.turnToHeading(-180, 3000);
+	pros::delay(100);
+	chassis.moveToPoint(0, -10, 3000, {.forwards = false});
+	clampState(false);
 }
 
 /**
