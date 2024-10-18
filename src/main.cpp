@@ -82,17 +82,30 @@ void autonomous() {
 	
 	chassis.setPose(0, 0, 0);
 	//chassis.follow(test_txt, 1, 3000, false);
-	chassis.moveToPose(-10, -15, 10, 3000, {.forwards = false, .minSpeed = 40});
-	chassis.moveToPose(-2, -32, -20, 3000, {.forwards = false});
-	pros::delay(880);
+	chassis.moveToPose(-5, -15, 20, 2000, {.forwards = false, .minSpeed = 40});
+	chassis.moveToPoint(0, -30, 1000, {.forwards = false});
+	pros::delay(950);
 	clampState(true);
 	pros::delay(150);
 	runIntake(true, -127);
+	chassis.moveToPose(0, -5, 0, 2000, {.forwards = true, .minSpeed = 40});
+	chassis.moveToPose(-22, -5, -50, 2000, {.forwards = true});
+	intakeState(true);
+	pros::delay(250);
+	chassis.moveToPoint(-10, -5, 2000, {.forwards = false});
+	intakeState(false);
 	pros::delay(200);
-	chassis.turnToHeading(-180, 3000);
-	pros::delay(100);
-	chassis.moveToPoint(0, -10, 3000, {.forwards = false});
+	chassis.moveToPose(20, 0, -90, 2000, {.forwards = false});
+	pros::delay(1500);
 	clampState(false);
+	chassis.moveToPoint(-10, 0, 2000, {.forwards = true});
+	chassis.turnToHeading(-5, 500);
+	chassis.moveToPoint(23, -43, 3000, {.forwards = false, .minSpeed = 40});
+	pros::delay(1500);
+	clampState(true);
+	chassis.turnToHeading(50, 1000);
+	chassis.moveToPoint(23, -30, 1000, {.forwards = true});
+	chassis.moveToPose(5, -45, -150, 1000, {.forwards = true, .minSpeed = 60});
 }
 
 /**
@@ -115,7 +128,8 @@ void opcontrol() {
 	int no_power = 0;
 
 	//Piston Variables
-	int clampValue = false;
+	bool clampValue = false;
+	bool intakePistonValue = false;
 
 	while (true) {
     	// Drivetrain
@@ -138,10 +152,18 @@ void opcontrol() {
     	}
 
 		//Clamp Button
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
       		clampValue = !clampValue;
       		clamp.set_value(clampValue);
     	}
+
+		/*
+		//Intake Piston
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+      		intakePistonValue = !intakePistonValue;
+      		intakePiston.set_value(intakePistonValue);
+    	}
+		*/
 	}
 
 }
