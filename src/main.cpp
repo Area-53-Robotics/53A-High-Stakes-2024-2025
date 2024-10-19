@@ -103,9 +103,9 @@ void autonomous() {
 	chassis.moveToPoint(23, -43, 3000, {.forwards = false, .minSpeed = 40});
 	pros::delay(1500);
 	clampState(true);
-	chassis.turnToHeading(50, 1000);
-	chassis.moveToPoint(23, -30, 1000, {.forwards = true});
-	chassis.moveToPose(5, -45, -150, 1000, {.forwards = true, .minSpeed = 60});
+	chassis.turnToHeading(60, 1000);
+	chassis.moveToPoint(23, -25, 1000, {.forwards = true});
+	chassis.moveToPose(5, -47, -150, 1000, {.forwards = true, .minSpeed = 60});
 }
 
 /**
