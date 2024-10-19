@@ -79,33 +79,9 @@ void competition_initialize() {}
 ASSET(test_txt);
 
 void autonomous() {
-	
-	chassis.setPose(0, 0, 0);
-	//chassis.follow(test_txt, 1, 3000, false);
-	chassis.moveToPose(-5, -15, 20, 2000, {.forwards = false, .minSpeed = 40});
-	chassis.moveToPoint(0, -30, 1000, {.forwards = false});
-	pros::delay(950);
-	clampState(true);
-	pros::delay(150);
-	runIntake(true, -127);
-	chassis.moveToPose(0, -5, 0, 2000, {.forwards = true, .minSpeed = 40});
-	chassis.moveToPose(-22, -5, -50, 2000, {.forwards = true});
-	intakeState(true);
-	pros::delay(250);
-	chassis.moveToPoint(-10, -5, 2000, {.forwards = false});
-	intakeState(false);
-	pros::delay(200);
-	chassis.moveToPose(20, 0, -90, 2000, {.forwards = false});
-	pros::delay(1500);
-	clampState(false);
-	chassis.moveToPoint(-10, 0, 2000, {.forwards = true});
-	chassis.turnToHeading(-5, 500);
-	chassis.moveToPoint(23, -43, 3000, {.forwards = false, .minSpeed = 40});
-	pros::delay(1500);
-	clampState(true);
-	chassis.turnToHeading(60, 1000);
-	chassis.moveToPoint(23, -25, 1000, {.forwards = true});
-	chassis.moveToPose(5, -47, -150, 1000, {.forwards = true, .minSpeed = 60});
+
+	red_neg();
+
 }
 
 /**
