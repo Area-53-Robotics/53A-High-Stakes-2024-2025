@@ -29,8 +29,10 @@ void initialize() {
 	pros::lcd::initialize();
 	pros::lcd::set_text(1, "Hello PROS User!");
 
+	/*
 	pros::lcd::register_btn1_cb(on_center_button);
-
+	left_motors.set_encoder_units_all(pros::E_MOTOR_ENCODER_DEGREES);
+	right_motors.set_encoder_units_all(pros::E_MOTOR_ENCODER_DEGREES);
     chassis.calibrate(); // calibrate sensors
     // print position to brain screen
     pros::Task screen_task([&]() {
@@ -43,6 +45,7 @@ void initialize() {
             pros::delay(20);
         }
     });
+	*/
 
 }
 
@@ -80,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	red_neg();
+	emergency_blue_pos();
 
 }
 

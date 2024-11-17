@@ -6,23 +6,23 @@
 inline pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Drive Train Motors (front, middle, back)
-inline pros::MotorGroup left_motors ({-11, -18, -20}, pros::MotorGearset::blue);
-inline pros::MotorGroup right_motors ({17, 21, 19}, pros::MotorGearset::blue);
+inline pros::MotorGroup left_motors ({-18, -19, -20}, pros::MotorGearset::blue);
+inline pros::MotorGroup right_motors ({15, 14, 2}, pros::MotorGearset::blue);
 
 //Intake Motor
-inline pros::Motor intake_motor (10);
+inline pros::Motor intake_motor (11);
 
 //Pneumatics
-inline pros::adi::Pneumatics clamp('A', false);
+inline pros::adi::Pneumatics clamp('H', false);
 inline pros::adi::Pneumatics intakePiston('B', false);
 
 //Inertial Sensor
-inline pros::Imu imu(16);
+inline pros::Imu imu(8);
 
 //Rotational Sensor
 //DETERMINE REVERSAL WHEN ADDED TO BOT
-inline pros::Rotation horizontalTracking(-3);
-inline pros::Rotation verticalTracking(-14);
+//inline pros::Rotation horizontalTracking(-3);
+//inline pros::Rotation verticalTracking(-14);
 
 inline lemlib::Drivetrain drivetrain(&left_motors, // left motor group
                               &right_motors, // right motor group
@@ -32,18 +32,18 @@ inline lemlib::Drivetrain drivetrain(&left_motors, // left motor group
                               2 // horizontal drift is 2 (for now)
 );
 
+/*
 inline lemlib::TrackingWheel horizontal_tracking_wheel(&horizontalTracking, lemlib::Omniwheel::NEW_2, -2.5);
 // vertical tracking wheel
 inline lemlib::TrackingWheel vertical_tracking_wheel(&verticalTracking, lemlib::Omniwheel::NEW_2, -2.5);
 
 inline lemlib::OdomSensors sensors(&vertical_tracking_wheel, // vertical tracking wheel 1
                             nullptr, // vertical tracking wheel 2, set to nullptr as we don't have a second one
-                            &horizontal_tracking_wheel, // horizontal tracking wheel 1
+                            nullptr, // horizontal tracking wheel 1
                             nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
                             &imu // inertial sensor
 );
 
-// lateral PID controller
 // lateral PID controller
 inline lemlib::ControllerSettings lateral_controller(5, // proportional gain (kP) 15
                                               0, // integral gain (kI)
@@ -66,9 +66,11 @@ inline lemlib::ControllerSettings angular_controller(3, // proportional gain (kP
                                               500, // large error range timeout, in milliseconds
                                               20 // maximum acceleration (slew)
 );
+
 // create the chassis
 inline lemlib::Chassis chassis(drivetrain, // drivetrain settings
                         lateral_controller, // lateral PID settings
                         angular_controller, // angular PID settings
                         sensors // odometry sensors
 );
+*/
