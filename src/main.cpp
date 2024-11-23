@@ -83,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	emergency_blue_pos();
+	emergency_red_pos();
 
 }
 

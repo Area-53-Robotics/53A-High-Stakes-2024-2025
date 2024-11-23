@@ -20,8 +20,10 @@ void clampState (bool state) {
 
 }
 
+/*
 void intakeState (bool state) {
 
 	intakePiston.set_value(state);
 	
 }
+*/
