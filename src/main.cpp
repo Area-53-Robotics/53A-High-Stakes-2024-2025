@@ -83,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	emergency_red_pos();
+	emergency_blue_neg();
 
 }
 
@@ -131,7 +131,7 @@ void opcontrol() {
     	}
 
 		//Clamp Button
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
       		clampValue = !clampValue;
       		clamp.set_value(clampValue);
     	}
