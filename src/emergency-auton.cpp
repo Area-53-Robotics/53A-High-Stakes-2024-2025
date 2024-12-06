@@ -78,12 +78,21 @@ void emergency_red_neg(){
 }
 
 
-void Emergency_skills(){
-    move(-50, 500);
+void emergency_skills(){
+    move(-57, 400);
+    pros::delay(400);
     clampState(true);
-    pros::delay(500);
+    pros::delay(350);
     runIntake(true, -127);
-    turn(-50, 400);
-    move(-60, 1000);
-    clampState(false);
+    turn(-42, 400);
+    move(60, 1000);
+    pros::delay(300);
+    runIntake(true, -127);
+    turn(60,700);
+    pros::delay(300);
+    move(60, 400);
+    runIntake(true, -127);
+
+
+
 }
