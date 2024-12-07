@@ -70,7 +70,7 @@ void competition_initialize() {}
 /**
  * Runs the user autonomous code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
- * the Field Management System or the VEX Competition Switch in the autonomous
+ * the Field Man agement System or the VEX Competition Switch in the autonomous
  * mode. Alternatively, this function may be called in initialize or opcontrol
  * for non-competition testing purposes.
  *
@@ -83,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	emergency_skills();
+	emergency_red_neg();
 
 }
 
