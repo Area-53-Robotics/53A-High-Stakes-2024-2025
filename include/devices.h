@@ -6,18 +6,22 @@
 inline pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Drive Train Motors (front, middle, back)
-inline pros::MotorGroup left_motors ({-18, -19, -20}, pros::MotorGearset::blue);
-inline pros::MotorGroup right_motors ({15, 14, 2}, pros::MotorGearset::blue);
+inline pros::MotorGroup left_motors ({-10, -9, -7}, pros::MotorGearset::blue);
+inline pros::MotorGroup right_motors ({2, 4, 3}, pros::MotorGearset::blue);
 
 //Intake Motor
 inline pros::Motor intake_motor (11);
 
+//Lady Brown
+inline pros::Motor lbleft_motor (5);
+inline pros::Motor lbright_motor (20);
+
 //Pneumatics
 inline pros::adi::Pneumatics clamp('H', false);
-inline pros::adi::Pneumatics intakePiston('B', false);
+//inline pros::adi::Pneumatics intakePiston('B', false);
 
 //Inertial Sensor
-inline pros::Imu imu(8);
+inline pros::Imu imu(7);
 
 //Rotational Sensor
 //DETERMINE REVERSAL WHEN ADDED TO BOT

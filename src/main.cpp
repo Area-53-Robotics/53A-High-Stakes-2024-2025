@@ -83,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	emergency_skills();
+	emergency_blue_neg();
 
 }
 
