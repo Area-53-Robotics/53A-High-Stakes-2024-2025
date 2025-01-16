@@ -2,6 +2,7 @@
 #include "devices.h"
 #include "auton.h"
 #include "lemlib/api.hpp"
+#include "ladyBrown.hpp"
 
 /**
  * A callback function for LLEMU's center button.
@@ -29,10 +30,11 @@ void initialize() {
 	pros::lcd::initialize();
 	pros::lcd::set_text(1, "Hello PROS User!");
 
-	/*
+	lb.set_position(0);
+
 	pros::lcd::register_btn1_cb(on_center_button);
-	left_motors.set_encoder_units_all(pros::E_MOTOR_ENCODER_DEGREES);
-	right_motors.set_encoder_units_all(pros::E_MOTOR_ENCODER_DEGREES);
+	//left_motors.set_encoder_units_all(pros::E_MOTOR_ENCODER_DEGREES);
+	//right_motors.set_encoder_units_all(pros::E_MOTOR_ENCODER_DEGREES);
     chassis.calibrate(); // calibrate sensors
     // print position to brain screen
     pros::Task screen_task([&]() {
@@ -45,7 +47,6 @@ void initialize() {
             pros::delay(20);
         }
     });
-	*/
 
 }
 
@@ -83,7 +84,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	emergency_red_neg();
+	blue_pos();
 
 }
 
@@ -134,6 +135,16 @@ void opcontrol() {
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
       		clampValue = !clampValue;
       		clamp.set_value(clampValue);
+    	}
+
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
+      		if (ladyBrownState == Starting) {
+				ladyBrownState = Load;
+			} else if (ladyBrownState == Load) {
+				ladyBrownState = Score;
+			} else if (ladyBrownState == Score) {
+				ladyBrownState = Starting;
+			}
     	}
 
 		/*

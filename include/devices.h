@@ -13,7 +13,7 @@ inline pros::MotorGroup right_motors ({2, 4, 3}, pros::MotorGearset::blue);
 inline pros::Motor intake_motor (11);
 
 //Lady Brown
-inline pros::Motor lbleft_motor (5);
+inline pros::Motor lbleft_motor (-5);
 inline pros::Motor lbright_motor (20);
 
 //Pneumatics
@@ -23,10 +23,10 @@ inline pros::adi::Pneumatics clamp('H', false);
 //Inertial Sensor
 inline pros::Imu imu(7);
 
-//Rotational Sensor
-//DETERMINE REVERSAL WHEN ADDED TO BOT
-//inline pros::Rotation horizontalTracking(-3);
-//inline pros::Rotation verticalTracking(-14);
+//Rotational Sensors
+
+inline pros::Rotation lb(14);
+inline pros::Rotation verticalTracking(6);
 
 inline lemlib::Drivetrain drivetrain(&left_motors, // left motor group
                               &right_motors, // right motor group
@@ -36,8 +36,7 @@ inline lemlib::Drivetrain drivetrain(&left_motors, // left motor group
                               2 // horizontal drift is 2 (for now)
 );
 
-/*
-inline lemlib::TrackingWheel horizontal_tracking_wheel(&horizontalTracking, lemlib::Omniwheel::NEW_2, -2.5);
+//inline lemlib::TrackingWheel horizontal_tracking_wheel(&horizontalTracking, lemlib::Omniwheel::NEW_2, -2.5);
 // vertical tracking wheel
 inline lemlib::TrackingWheel vertical_tracking_wheel(&verticalTracking, lemlib::Omniwheel::NEW_2, -2.5);
 
@@ -49,9 +48,9 @@ inline lemlib::OdomSensors sensors(&vertical_tracking_wheel, // vertical trackin
 );
 
 // lateral PID controller
-inline lemlib::ControllerSettings lateral_controller(5, // proportional gain (kP) 15
+inline lemlib::ControllerSettings lateral_controller(6, // proportional gain (kP) 15
                                               0, // integral gain (kI)
-                                              20, // derivative gain (kD) 15
+                                              5, // derivative gain (kD) 20
                                               3, // anti windup
                                               1, // small error range, in inches
                                               100, // small error range timeout, in milliseconds
@@ -77,4 +76,3 @@ inline lemlib::Chassis chassis(drivetrain, // drivetrain settings
                         angular_controller, // angular PID settings
                         sensors // odometry sensors
 );
-*/
