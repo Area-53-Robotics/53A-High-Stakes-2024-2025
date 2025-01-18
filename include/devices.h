@@ -13,8 +13,8 @@ inline pros::MotorGroup right_motors ({2, 4, 3}, pros::MotorGearset::blue);
 inline pros::Motor intake_motor (11);
 
 //Lady Brown
-inline pros::Motor lbleft_motor (-5);
-inline pros::Motor lbright_motor (20);
+inline pros::Motor lbleft_motor (5);
+inline pros::Motor lbright_motor (-20);
 
 //Pneumatics
 inline pros::adi::Pneumatics clamp('H', false);

@@ -1,9 +1,12 @@
-//Lady Brown
-//void currentTask 
-	enum LadyBrown {
-		Starting,
-		Load,
-		Score,
-	};
+/*
+#include "devices.h"
 
-	extern LadyBrown ladyBrownState;
+void currentTask(void * param);
+
+enum LadyBrownStates {
+    StartingState,
+    SecondState,
+    ForwardState,
+};
+extern LadyBrownStates ladyBrownState;
+*/

@@ -20,6 +20,16 @@ void clampState (bool state) {
 
 }
 
+void ladyBrown (int power, int timeout) {
+
+	lbleft_motor.move(power);
+    lbright_motor.move(power);
+    pros::delay(timeout);
+    lbleft_motor.brake();
+    lbright_motor.brake();  
+
+}
+
 /*
 void intakeState (bool state) {
 
