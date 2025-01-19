@@ -3,6 +3,7 @@
 #include "auton.h"
 #include "lemlib/api.hpp"
 #include "ladyBrown.hpp"
+#include "pros/motors.h"
 
 /**
  * A callback function for LLEMU's center button.
@@ -32,9 +33,8 @@ void initialize() {
 	//lbright_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	lb.set_position(0);
 	//pros::lcd::register_btn1_cb(on_center_button);
-	//left_motors.set_encoder_units_all(pros::E_MOTOR_ENCODER_DEGREES);
-	//right_motors.set_encoder_units_all(pros::E_MOTOR_ENCODER_DEGREES);
     chassis.calibrate(); // calibrate sensors
+
     // print position to brain screen
     pros::Task screen_task([&]() {
         while (true) {
@@ -83,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	blue_neg();
+	red_neg();
 
 }
 
