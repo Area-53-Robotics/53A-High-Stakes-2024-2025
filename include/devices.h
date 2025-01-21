@@ -18,7 +18,7 @@ inline pros::Motor lbright_motor (-20);
 
 //Pneumatics
 inline pros::adi::Pneumatics clamp('H', false);
-//inline pros::adi::Pneumatics intakePiston('B', false);
+inline pros::adi::Pneumatics intakePiston('G', false);
 
 //Inertial Sensor
 inline pros::Imu imu(7);

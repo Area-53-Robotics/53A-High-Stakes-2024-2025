@@ -3,6 +3,8 @@
 #include "auton.h"
 
 void blue_pos() {
+    chassis.moveToPoint(0, 10, 1000, {.forwards = true});
+    /*
     chassis.moveToPoint(0, -26, 1000, {.forwards = false});
     chassis.moveToPose(-10, -52, 32, 2000, {.forwards = false});
     pros::delay(2000);
@@ -21,6 +23,7 @@ void blue_pos() {
     pros::delay(1000);
     clampState(true);
     runIntake(true, -127);
+    */
 
 }
 
@@ -48,24 +51,39 @@ void blue_neg() {
 }
 
 void red_pos() {
-    chassis.moveToPoint(0, -26, 1000, {.forwards = false});
-    chassis.moveToPose(10, -52, -32, 2000, {.forwards = false});
-    pros::delay(2000);
+    chassis.moveToPoint(0, -29, 1000, {.forwards = false});
+    chassis.moveToPose(10, -49, -28, 2000, {.forwards = false});
+    pros::delay(1600);
     clampState(true);
     pros::delay(500);
     runIntake(true, -127);
     chassis.turnToHeading(0, 1000);
-    chassis.moveToPoint(12, -29, 1000, {.forwards = true});
+    chassis.moveToPoint(11, -28, 1000, {.forwards = true});
     pros::delay(1200);
-    chassis.turnToHeading(145, 1000);
+    chassis.turnToHeading(153, 1000);
     clampState(false);
     runIntake(false, 0);
     pros::delay(1000);
-    chassis.turnToHeading(270, 1000);
-    chassis.moveToPoint(33, -33, 1000, {.forwards = false});
-    pros::delay(1000);
+    chassis.turnToHeading(272, 1000);
+    chassis.moveToPoint(30, -27, 1000, {.forwards = false});
+    pros::delay(850);
     clampState(true);
+    pros::delay(400);
     runIntake(true, -127);
+    pros::delay(1000);
+    chassis.turnToHeading(-251, 1000);
+    clampState(false);
+    chassis.moveToPose(66, -4, -320, 2000, {.forwards = true});
+    pros::delay(250);
+    intakeState(true);
+    chassis.moveToPoint(60, -11, 1000, {.forwards = false});
+    intakeState(false);
+    chassis.moveToPoint(68, -6, 1000, {.forwards = true});
+    runIntake(false, 0);
+    chassis.turnToHeading(180, 1000);
+    chassis.moveToPoint(62, 0, 1000, {.forwards = false});
+    runIntake(true, -127);
+
 }
 
 void red_neg() {
@@ -73,17 +91,17 @@ void red_neg() {
     pros::delay(500);
     ladyBrown(127, 500);
     ladyBrown(-127, 500);
-    chassis.moveToPose(-18, -22, 33, 2000, {.forwards = false});
+    chassis.moveToPose(-15, -20, 33, 2000, {.forwards = false});
     pros::delay(1800);
     clampState(true);
-    chassis.turnToHeading(148, 1000);
+    chassis.turnToHeading(150, 1000);
     runIntake(true, -127);
-    chassis.moveToPoint(-13, -39, 2000, {.forwards = true});
+    chassis.moveToPoint(-13, -42, 2000, {.forwards = true});
     pros::delay(1500);
     chassis.moveToPoint(-22, -54, 2000, {.forwards = true});
     pros::delay(1500);
-    chassis.moveToPoint(-9, -42, 2000, {.forwards = false});
-    chassis.moveToPoint(-22, -46, 2000, {.forwards = true});
+    chassis.moveToPoint(-13, -40, 2000, {.forwards = false});
+    chassis.moveToPoint(-23, -48, 2000, {.forwards = true});
     pros::delay(2000);
     ladyBrown(127, 300);
     chassis.moveToPoint(-31, -34, 2000, {.forwards = true});

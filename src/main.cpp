@@ -83,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	red_neg();
+	red_pos();
 
 }
 
@@ -152,28 +152,26 @@ void opcontrol() {
 	    }
 
 		if (lbState == 1) {
-                lbleft_motor.move(((7*100)-lb.get_angle()) * 0.02);
-                lbright_motor.move(((7*100)-lb.get_angle()) * 0.02);
+                lbleft_motor.move(((100*100)-lb.get_angle()) * 0.05);
+                lbright_motor.move(((100*100)-lb.get_angle()) * 0.05);
         }
         if (lbState == 2) {
-                lbleft_motor.move(((40*100)-lb.get_angle()) * 0.025);
-                lbright_motor.move(((40*100)-lb.get_angle()) * 0.025);
+                lbleft_motor.move(((130*100)-lb.get_angle()) * 0.033);
+                lbright_motor.move(((130*100)-lb.get_angle()) * 0.033);
         }
         if (lbState == 3) {
-                lbleft_motor.move(((134*100)-lb.get_angle()) * 0.0106);
-                lbright_motor.move(((134*100)-lb.get_angle()) * 0.0106);
+                lbleft_motor.move(((240*100)-lb.get_angle()) * 0.009);
+                lbright_motor.move(((240*100)-lb.get_angle()) * 0.009);
         }
 
 		printf("%d", lb.get_angle());
 		//printf("%i", left);
 
-		/*
 		//Intake Piston
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
       		intakePistonValue = !intakePistonValue;
       		intakePiston.set_value(intakePistonValue);
     	}
-		*/
 	}
 
 }

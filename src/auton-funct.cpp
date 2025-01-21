@@ -30,10 +30,8 @@ void ladyBrown (int power, int timeout) {
 
 }
 
-/*
 void intakeState (bool state) {
 
 	intakePiston.set_value(state);
 	
 }
-*/
