@@ -127,7 +127,7 @@ void opcontrol() {
 		// Controls Intake
     	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
       		intake_motor.move(min_power);
-    	} else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
+    	} else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
       		intake_motor.move(max_power);
     	} else {
       		intake_motor.move(no_power);
@@ -139,7 +139,7 @@ void opcontrol() {
       		clamp.set_value(clampValue);
     	}
 
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1) || master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
 			if (lbState == 0) {
 				lbState = 1;
 			} else if (lbState == 1) {
