@@ -10,6 +10,7 @@ void blue_pos();
 void blue_neg();
 void red_pos();
 void red_neg();
+void skills();
 
 //Emergency
 void emergency_blue_pos();

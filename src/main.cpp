@@ -29,8 +29,8 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	//lbleft_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-	//lbright_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	lbleft_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	lbright_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	lb.set_position(0);
 	//pros::lcd::register_btn1_cb(on_center_button);
     chassis.calibrate(); // calibrate sensors
@@ -83,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	red_pos();
+	skills();
 
 }
 
@@ -112,6 +112,12 @@ void opcontrol() {
 
 	//Lady Brown
 	int lbState = 0;
+	/*
+	chassis.moveToPoint(2.5, 9, 1000, {.forwards = true});
+    pros::delay(500);
+	ladyBrown(127, 500);
+    ladyBrown(-127, 500);
+	*/
 
 	while (true) {
     	// Drivetrain
@@ -139,6 +145,15 @@ void opcontrol() {
       		clamp.set_value(clampValue);
     	}
 
+		//descore state
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+      		if (lbState != 4) {
+				lbState = 4;
+			} else if (lbState == 4) {
+				lbState = 1;
+			}
+    	}
+
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1) || master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
 			if (lbState == 0) {
 				lbState = 1;
@@ -147,6 +162,8 @@ void opcontrol() {
 			} else if (lbState == 2) {
 				lbState = 3;
 			} else if (lbState == 3) {
+				lbState = 1;
+			} else if (lbState == 4) {
 				lbState = 1;
 			}
 	    }
@@ -160,8 +177,12 @@ void opcontrol() {
                 lbright_motor.move(((130*100)-lb.get_angle()) * 0.033);
         }
         if (lbState == 3) {
-                lbleft_motor.move(((240*100)-lb.get_angle()) * 0.009);
-                lbright_motor.move(((240*100)-lb.get_angle()) * 0.009);
+                lbleft_motor.move(((230*100)-lb.get_angle()) * 0.01);
+                lbright_motor.move(((230*100)-lb.get_angle()) * 0.01);
+        }
+		if (lbState == 4) {
+                lbleft_motor.move(((240*100)-lb.get_angle()) * 0.008);
+                lbright_motor.move(((240*100)-lb.get_angle()) * 0.008);
         }
 
 		printf("%d", lb.get_angle());
