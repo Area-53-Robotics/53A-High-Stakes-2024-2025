@@ -25,7 +25,7 @@ inline pros::Imu imu(7);
 
 //Rotational Sensors
 
-inline pros::Rotation lb(14);
+inline pros::Rotation lb(15);
 inline pros::Rotation verticalTracking(6);
 
 inline lemlib::Drivetrain drivetrain(&left_motors, // left motor group

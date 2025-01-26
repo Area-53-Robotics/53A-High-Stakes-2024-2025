@@ -83,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	skills();
+	blue_neg();
 
 }
 
@@ -111,13 +111,10 @@ void opcontrol() {
 	bool intakePistonValue = false;
 
 	//Lady Brown
-	int lbState = 0;
-	/*
-	chassis.moveToPoint(2.5, 9, 1000, {.forwards = true});
-    pros::delay(500);
-	ladyBrown(127, 500);
-    ladyBrown(-127, 500);
-	*/
+	int lbState = 1;
+
+    ladyBrown(127, 500);
+    ladyBrown(-127, 800);
 
 	while (true) {
     	// Drivetrain
@@ -173,16 +170,16 @@ void opcontrol() {
                 lbright_motor.move(((100*100)-lb.get_angle()) * 0.05);
         }
         if (lbState == 2) {
-                lbleft_motor.move(((130*100)-lb.get_angle()) * 0.033);
-                lbright_motor.move(((130*100)-lb.get_angle()) * 0.033);
+                lbleft_motor.move(((128*100)-lb.get_angle()) * 0.0357);
+                lbright_motor.move(((128*100)-lb.get_angle()) * 0.0357);
         }
         if (lbState == 3) {
                 lbleft_motor.move(((230*100)-lb.get_angle()) * 0.01);
                 lbright_motor.move(((230*100)-lb.get_angle()) * 0.01);
         }
 		if (lbState == 4) {
-                lbleft_motor.move(((240*100)-lb.get_angle()) * 0.008);
-                lbright_motor.move(((240*100)-lb.get_angle()) * 0.008);
+                lbleft_motor.move(((245*100)-lb.get_angle()) * 0.0068);
+                lbright_motor.move(((245*100)-lb.get_angle()) * 0.0068);
         }
 
 		printf("%d", lb.get_angle());
