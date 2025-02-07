@@ -83,7 +83,7 @@ ASSET(test_txt);
 
 void autonomous() {
 
-	blue_neg();
+	blue_pos();
 
 }
 
@@ -112,9 +112,11 @@ void opcontrol() {
 
 	//Lady Brown
 	int lbState = 1;
-
+	
+	/*
     ladyBrown(127, 500);
     ladyBrown(-127, 800);
+	*/
 
 	while (true) {
     	// Drivetrain
@@ -178,15 +180,15 @@ void opcontrol() {
                 lbright_motor.move(((230*100)-lb.get_angle()) * 0.01);
         }
 		if (lbState == 4) {
-                lbleft_motor.move(((245*100)-lb.get_angle()) * 0.0068);
-                lbright_motor.move(((245*100)-lb.get_angle()) * 0.0068);
+                lbleft_motor.move(((250*100)-lb.get_angle()) * 0.0066);
+                lbright_motor.move(((250*100)-lb.get_angle()) * 0.0066);
         }
 
 		printf("%d", lb.get_angle());
 		//printf("%i", left);
 
 		//Intake Piston
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
       		intakePistonValue = !intakePistonValue;
       		intakePiston.set_value(intakePistonValue);
     	}

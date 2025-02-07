@@ -4,31 +4,47 @@
 
 void blue_pos() {
 
-    chassis.moveToPoint(1, -32, 1000, {.forwards = false});
-    chassis.turnToHeading(32, 300);
-    chassis.moveToPoint(-9, -51, 1000, {.forwards  = false});
+    chassis.moveToPoint(0.5, -32, 1000, {.forwards = false});
+    chassis.turnToHeading(33, 200);
+    chassis.moveToPoint(-8, -50, 1000, {.forwards  = false});
     //chassis.moveToPose(10, -49, -28, 2000, {.forwards = false});
-    pros::delay(1500);
+    pros::delay(900);
     clampState(true);
     pros::delay(500);
     runIntake(true, -127);
-    chassis.turnToHeading(0, 1000);
+    chassis.turnToHeading(0, 200);
     chassis.moveToPoint(-8, -30, 1000, {.forwards = true});
-    pros::delay(1200);
+    pros::delay(1560);
     chassis.turnToHeading(-131, 1000);
     clampState(false);
     runIntake(false, 0);
     pros::delay(1000);
     chassis.turnToHeading(-273, 1000);
-    chassis.moveToPoint(-33, -35, 1000, {.forwards = false});
+    chassis.moveToPoint(-35, -35, 1000, {.forwards = false});
     pros::delay(850);
     clampState(true);
     pros::delay(400);
     runIntake(true, -127);
+    pros::delay(1500);
+    clampState(false);
+    chassis.moveToPoint(-59, -10, 1500, {.forwards = true});
+    chassis.moveToPoint(-72, 0, 1500, {.forwards = true});
+    chassis.turnToHeading(270, 1000);
+    chassis.moveToPoint(-66, 4, 1000, {.forwards = false});
+    chassis.turnToHeading(180, 1000);
+    pros::delay(120);
+    runIntake(false, 0);
+    chassis.moveToPoint(-67, 5, 1000, {.forwards = false});
+    runIntake(true, -127);
+    pros::delay(100);
+    runIntake(false, 0);
+
+    /*
     pros::delay(1000);
     chassis.moveToPose(-44, -46, -137, 3000, {.forwards = true});
     pros::delay(500);
     ladyBrown(127, 700);
+    */
     /*
     chassis.turnToHeading(251, 1000);
     pros::delay(300);
