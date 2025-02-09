@@ -31,7 +31,7 @@ void initialize() {
 	pros::lcd::initialize();
 	lbleft_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	lbright_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-	lb.set_position(0);
+	//lb.set_position(0);
 	//pros::lcd::register_btn1_cb(on_center_button);
     chassis.calibrate(); // calibrate sensors
 
@@ -79,11 +79,12 @@ void competition_initialize() {}
  * from where it left off.
  */
 
+
 ASSET(test_txt);
 
 void autonomous() {
 
-	blue_pos();
+	blue_neg();
 
 }
 
@@ -115,7 +116,7 @@ void opcontrol() {
 	
 	/*
     ladyBrown(127, 500);
-    ladyBrown(-127, 800);
+    ladyBrown(-127, 600);
 	*/
 
 	while (true) {
