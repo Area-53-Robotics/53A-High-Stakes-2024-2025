@@ -171,7 +171,11 @@ void opcontrol() {
 				lbState = 3;
 			} else if (lbState == 3) {
 				lbState = 1;
-			} 
+			} else if (lbState == 4) {
+				lbState = 1;
+			} else if (lbState == 5) {
+				lbState = 1;
+			}
 	    }
 
 		if (lbState == 1) {
