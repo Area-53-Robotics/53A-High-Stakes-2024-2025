@@ -153,6 +153,14 @@ void opcontrol() {
 				lbState = 1;
 			}
     	}
+		// goal flip
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+      		if (lbState != 5) {
+				lbState = 5;
+			} else if (lbState == 5) {
+				lbState = 1;
+			}
+    	}
 
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1) || master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
 			if (lbState == 0) {
@@ -163,9 +171,7 @@ void opcontrol() {
 				lbState = 3;
 			} else if (lbState == 3) {
 				lbState = 1;
-			} else if (lbState == 4) {
-				lbState = 1;
-			}
+			} 
 	    }
 
 		if (lbState == 1) {
@@ -181,8 +187,12 @@ void opcontrol() {
                 lbright_motor.move(((230*100)-lb.get_angle()) * 0.01);
         }
 		if (lbState == 4) {
-                lbleft_motor.move(((250*100)-lb.get_angle()) * 0.0066);
-                lbright_motor.move(((250*100)-lb.get_angle()) * 0.0066);
+                lbleft_motor.move(((253*100)-lb.get_angle()) * 0.0435);
+                lbright_motor.move(((253*100)-lb.get_angle()) * 0.0435);
+        }
+		if (lbState == 5) {
+                lbleft_motor.move(((300*100)-lb.get_angle()) * 0.02);
+                lbright_motor.move(((300*100)-lb.get_angle()) * 0.02);
         }
 
 		printf("%d", lb.get_angle());
