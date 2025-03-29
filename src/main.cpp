@@ -83,8 +83,7 @@ void competition_initialize() {}
 ASSET(test_txt);
 
 void autonomous() {
-
-	blue_neg();
+	blue_pos();
 
 }
 
@@ -179,7 +178,7 @@ void opcontrol() {
 	    }
 
 		if (lbState == 1) {
-                lbleft_motor.move(((100*100)-lb.get_angle()) * 0.05);
+                lbleft_motor.move(((100*100)-lb.get_angle()) * 0.05); //0.05
                 lbright_motor.move(((100*100)-lb.get_angle()) * 0.05);
         }
         if (lbState == 2) {
@@ -197,7 +196,7 @@ void opcontrol() {
 		if (lbState == 5) {
                 lbleft_motor.move(((300*100)-lb.get_angle()) * 0.02);
                 lbright_motor.move(((300*100)-lb.get_angle()) * 0.02);
-        }
+        } 
 
 		printf("%d", lb.get_angle());
 		//printf("%i", left);
