@@ -3,10 +3,24 @@
 #include "auton.h"
 
 void blue_solo() {
-    chassis.moveToPoint(-2, 10, 1000, {.forwards = true});
+    chassis.moveToPoint(-0.5, 7.8, 1000, {.forwards = true}); //move to team stake
     pros::delay(500);
     ladyBrown(127, 500);
-    ladyBrown(-127, 600);
+    pros::delay(500);
+    ladyBrown(-80, 600);
+    pros::delay(500);
+    chassis.moveToPoint(19, -21, 2000, {.forwards = false}); //move to neg side stake
+    pros::delay(1700);
+    clampState(true); //clamp stake
+    pros::delay(950);
+    runIntake(true, -127);
+    chassis.turnToHeading(-135, 1000); //turn to rings (close to right neutral stake) -148
+    chassis.moveToPoint(9, -42, 2000, {.forwards = true}); //move to rings 
+    pros::delay(800);
+    chassis.moveToPoint(33, 69, 1500, {.forwards = true}); //move to rings in front of team stake -1, 24 / 48, -45
+
+
+    
     /* chassis.moveToPoint(0,48,1000);
    chassis.setPose(-12,54, 20);
    chassis.moveToPoint(-10, 63, 1000, {.forwards = true}); // move to team stake
