@@ -3,7 +3,34 @@
 #include "auton.h"
 
 void blue_solo() {
-    chassis.moveToPoint(-0.5, 7.8, 1000, {.forwards = true}); //move to team stake
+  //  chassis.setPose(0,0,0);
+    chassis.moveToPose(-1, 11, -10 , 1000, {.forwards = true}); //move to team stake
+    pros::delay(500);
+    ladyBrown(80, 500);
+    pros::delay(500);
+    ladyBrown(-80, 600);
+    chassis.moveToPoint(19, -21, 1000, {.forwards = false}); //move to right side stake
+    pros::delay(1200);
+    clampState(true); //clamp stake
+    pros::delay(1300);
+    runIntake(true, -127);
+    chassis.moveToPoint(7, -42, 2000, {.forwards = true}); //move to rings stake close to neu stake
+    pros::delay(4000);
+    clampState(false);
+    chassis.moveToPoint(18, 1, 3500, {.forwards = true}); //move to middle near  3 rings 18,1 
+    chassis.moveToPose(50, 11, -58, 2500, {.forwards = false}); //move to left side stake
+    pros::delay(1000);
+    clampState(true);
+
+    /*chassis.moveToPose(62,17,54, 1000, {.forwards = true}); //move to left side rings 
+    chassis.moveToPose(47, 49, 169, 1000, {.forwards = true}); //move to corner */
+
+
+
+
+
+
+    /* chassis.moveToPoint(-0.5, 7.8, 1000, {.forwards = true}); //move to team stake (-0.5, 7.8)
     pros::delay(500);
     ladyBrown(127, 500);
     pros::delay(500);
@@ -17,7 +44,8 @@ void blue_solo() {
     chassis.turnToHeading(-135, 1000); //turn to rings (close to right neutral stake) -148
     chassis.moveToPoint(9, -42, 2000, {.forwards = true}); //move to rings 
     pros::delay(800);
-    chassis.moveToPoint(33, 69, 1500, {.forwards = true}); //move to rings in front of team stake -1, 24 / 48, -45
+    chassis.moveToPose(-3, 47, 201, 2000, {.forwards = true}); 
+    chassis.moveToPoint(33, 69, 1500, {.forwards = true}); //move to rings in front of team stake -1, 24 / 48, -45 /*
 
 
     
