@@ -1,3 +1,4 @@
+#include "lemlib/chassis/chassis.hpp"
 #include "main.h"
 #include "devices.h"
 #include "auton.h"
@@ -265,7 +266,49 @@ void red_neg() { //ring side
     runIntake(true, 127);
 
 }
-
+void red_solo() {
+    // Move to alliance stake
+    chassis.moveToPoint(0, 6, 1000);
+    chassis.turnToHeading(40, 1000);
+    pros::delay(1000); 
+    // Score on alliance stake
+    ladyBrown(127, 650);
+    pros::delay(200);
+    ladyBrown(-127, 700);
+    // Move back to mogo
+    chassis.moveToPose(-33, -7, 57, 3000, {.forwards = false});
+    chassis.waitUntilDone();
+    // Clamp mogo
+    clampState(true);
+    pros::delay(500);
+    // Move to ring and intake
+    chassis.turnToPoint(-36, -28.4, 1000);
+    chassis.waitUntilDone();
+    intake_motor.move(-120);
+    chassis.moveToPose(-39, -30, 180, 3000);
+    chassis.waitUntilDone();
+    pros::delay(1000);
+    // Move to middle ring
+    chassis.moveToPose(-10, 22, 0, 3000, {.forwards = true});
+    chassis.waitUntilDone();
+    // Drop goal
+    chassis.moveToPoint(-10, 42, 3000);
+    chassis.waitUntilDone();
+    pros::delay(1000);
+    intake_motor.brake();
+    clampState(false);
+    // Move to other side goal
+    chassis.moveToPoint(-10, 45, 1000);
+    chassis.moveToPose(-33, 43, 56, 3000,{.forwards = false});
+    chassis.waitUntilDone();
+   clampState(true);
+    /*
+    chassis.moveToPose(-39, -27, 128, 5000);
+    intakeState(true);
+    pros::delay(1000);
+    intakeState(false);*/
+    
+}
 void skills() {  // starts in front of team stake. try to get goals in the corner, or lb right red ring onto left green stake
    /* ladyBrown(127, 500); //loads ring onto stake
     ladyBrown(-127, 550); //retracts lb
@@ -278,7 +321,7 @@ void skills() {  // starts in front of team stake. try to get goals in the corne
     runIntake(true,127);
     chassis.moveToPoint(-25,-10,1000, {.forwards = false}); //moves into wall and gets both red rings
     chassis.turnToHeading(90,500); //turns to face corner
-    chassis.moveToPoint(35,0,500, {.forwards = truee}); //moves to line
+    chassis.moveToPoint(35,0,500, {.forwards = true}); //moves to line
     chassis.turnToHeading(90,500); //turns to 3rd ring
     chassis.moveToPoint(25,0,800, {.forwards = true});
     chassis.turnToHeading(60,500); //turns to corner
