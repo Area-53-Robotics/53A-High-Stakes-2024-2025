@@ -5,7 +5,45 @@
 
 void blue_solo() {
   //  chassis.setPose(0,0,0);
-    chassis.moveToPose(-1, 11, -10 , 1000, {.forwards = true}); //move to team stake
+    // Move to alliance stake
+    chassis.moveToPoint(-0, 6, 1000);
+    chassis.turnToHeading(-40, 1000);
+    pros::delay(1000); 
+    // Score on alliance stake
+    // ladyBrown(127, 650);
+    // pros::delay(200);
+    // ladyBrown(-127, 700); 
+    // Move back to mogo
+   chassis.moveToPose(30, -3, -61, 3000, {.forwards = false});
+    chassis.waitUntilDone();
+    // Clamp mogo
+    clampState(true);
+    pros::delay(500);
+    // Move to ring and intake
+    chassis.turnToPoint(29, -30, 1000);
+    chassis.waitUntilDone();
+    intake_motor.move(-127);
+    chassis.moveToPose(29, -30, -173, 3000);
+    chassis.waitUntilDone();
+    pros::delay(1000);
+    // Move to middle ring
+    chassis.moveToPose(13, 15, 0, 3000, {.forwards = true});
+    chassis.waitUntilDone();
+    // Drop goal
+    chassis.moveToPoint(13, 27, 3000);
+    chassis.waitUntilDone();
+    pros::delay(1000);
+    intake_motor.brake();
+    clampState(false);
+    // Move to other side goal
+    chassis.moveToPoint(13, 30, 1000);
+   // chassis.turnToPoint(25, 34, 1000);
+    chassis.moveToPose(23, 34, -121, 3000,{.forwards = false});
+    chassis.waitUntilDone();
+    clampState(true); 
+
+
+  /*  chassis.moveToPose(-1, 11, -10 , 1000, {.forwards = true}); //move to team stake
     pros::delay(500);
     ladyBrown(80, 500);
     pros::delay(500);
@@ -22,14 +60,8 @@ void blue_solo() {
     chassis.moveToPose(50, 11, -58, 2500, {.forwards = false}); //move to left side stake
     pros::delay(1000);
     clampState(true);
-
-    /*chassis.moveToPose(62,17,54, 1000, {.forwards = true}); //move to left side rings 
+    chassis.moveToPose(62,17,54, 1000, {.forwards = true}); //move to left side rings 
     chassis.moveToPose(47, 49, 169, 1000, {.forwards = true}); //move to corner */
-
-
-
-
-
 
     /* chassis.moveToPoint(-0.5, 7.8, 1000, {.forwards = true}); //move to team stake (-0.5, 7.8)
     pros::delay(500);
@@ -48,8 +80,6 @@ void blue_solo() {
     chassis.moveToPose(-3, 47, 201, 2000, {.forwards = true}); 
     chassis.moveToPoint(33, 69, 1500, {.forwards = true}); //move to rings in front of team stake -1, 24 / 48, -45 /*
 
-
-    
     /* chassis.moveToPoint(0,48,1000);
    chassis.setPose(-12,54, 20);
    chassis.moveToPoint(-10, 63, 1000, {.forwards = true}); // move to team stake
