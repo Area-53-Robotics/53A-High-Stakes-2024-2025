@@ -37,7 +37,7 @@ void blue_solo() {
     clampState(false);
     // Move to other side goal
     chassis.moveToPoint(13, 30, 1000);
-   // chassis.turnToPoint(25, 34, 1000);
+   //  chassis.turnToPoint(25, 34, 1000);
     chassis.moveToPose(23, 34, -121, 3000,{.forwards = false});
     chassis.waitUntilDone();
     clampState(true); 
@@ -298,40 +298,51 @@ void red_neg() { //ring side
 }
 void red_solo() {
     // Move to alliance stake
-    chassis.moveToPoint(0, 6, 1000);
-    chassis.turnToHeading(40, 1000);
-    pros::delay(1000); 
+    chassis.moveToPoint(0, 6, 800);
+    chassis.turnToHeading(40, 800);
+    pros::delay(800); 
     // Score on alliance stake
-    ladyBrown(127, 650);
-    pros::delay(200);
-    ladyBrown(-127, 700);
+    // ladyBrown(127, 650);
+    // pros::delay(200);
+    // ladyBrown(-127, 700);
     // Move back to mogo
-    chassis.moveToPose(-33, -7, 57, 3000, {.forwards = false});
+    chassis.moveToPose(-33, -7, 57, 2800, {.forwards = false});
     chassis.waitUntilDone();
     // Clamp mogo
     clampState(true);
-    pros::delay(500);
+    pros::delay(300);
     // Move to ring and intake
-    chassis.turnToPoint(-36, -28.4, 1000);
+    chassis.turnToPoint(-36, -28.4, 800);
     chassis.waitUntilDone();
     intake_motor.move(-120);
-    chassis.moveToPose(-39, -30, 180, 3000);
+    chassis.moveToPose(-39, -30, 180, 2800);
     chassis.waitUntilDone();
-    pros::delay(1000);
+    pros::delay(800);
     // Move to middle ring
-    chassis.moveToPose(-10, 22, 0, 3000, {.forwards = true});
+    chassis.moveToPose(-10, 22, 0, 2800, {.forwards = true});
     chassis.waitUntilDone();
     // Drop goal
-    chassis.moveToPoint(-10, 42, 3000);
+    chassis.moveToPoint(-10, 42, 2800);
     chassis.waitUntilDone();
-    pros::delay(1000);
+    pros::delay(800);
     intake_motor.brake();
     clampState(false);
     // Move to other side goal
-    chassis.moveToPoint(-10, 45, 1000);
-    chassis.moveToPose(-33, 43, 56, 3000,{.forwards = false});
+    chassis.moveToPoint(-10, 45, 800);
+    chassis.moveToPose(-32, 43, 65, 2600,{.forwards = false});
     chassis.waitUntilDone();
-   clampState(true);
+    clampState(true);
+    // Move to ring stack next to goal
+    chassis.moveToPose(-34, 69, -42, 2400,{.forwards = true}); //-32, 66
+   intake_motor.move(-127);
+    pros::delay(900);
+    chassis.waitUntilDone();
+    pros::delay(400);
+    // Move to ladder
+    chassis.moveToPoint(-52, 52, 1800); 
+    ladyBrown(75, 500);
+  //  intake_motor.brake();
+
     /*
     chassis.moveToPose(-39, -27, 128, 5000);
     intakeState(true);
