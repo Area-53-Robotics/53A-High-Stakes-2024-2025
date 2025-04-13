@@ -6,42 +6,53 @@
 void blue_solo() {
   //  chassis.setPose(0,0,0);
     // Move to alliance stake
-    chassis.moveToPoint(-0, 6, 1000);
-    chassis.turnToHeading(-40, 1000);
-    pros::delay(1000); 
+    chassis.moveToPoint(-0, 6, 600);
+    chassis.turnToHeading(-40, 600);
+    pros::delay(300); 
     // Score on alliance stake
     // ladyBrown(127, 650);
     // pros::delay(200);
     // ladyBrown(-127, 700); 
     // Move back to mogo
-   chassis.moveToPose(30, -3, -61, 3000, {.forwards = false});
+  // chassis.moveToPose(30, -3, -61, 2600, {.forwards = false});
+    chassis.moveToPose(54.7, -17.2, -60, 1100, {.forwards = false});
     chassis.waitUntilDone();
     // Clamp mogo
     clampState(true);
-    pros::delay(500);
+    pros::delay(250); //leave this time for now
     // Move to ring and intake
-    chassis.turnToPoint(29, -30, 1000);
+    chassis.turnToPoint(29, -30, 550);
     chassis.waitUntilDone();
     intake_motor.move(-127);
-    chassis.moveToPose(29, -30, -173, 3000);
+    chassis.moveToPose(29, -30, -173, 2550);
     chassis.waitUntilDone();
-    pros::delay(1000);
+    pros::delay(550); 
     // Move to middle ring
-    chassis.moveToPose(13, 15, 0, 3000, {.forwards = true});
+    chassis.moveToPose(13, 15, 0, 3000, {.forwards = true});//
     chassis.waitUntilDone();
     // Drop goal
-    chassis.moveToPoint(13, 27, 3000);
+    chassis.moveToPoint(13, 27, 2700);
     chassis.waitUntilDone();
-    pros::delay(1000);
+    pros::delay(800);
     intake_motor.brake();
     clampState(false);
     // Move to other side goal
-    chassis.moveToPoint(13, 30, 1000);
+    chassis.moveToPoint(13, 30, 780);
    //  chassis.turnToPoint(25, 34, 1000);
-    chassis.moveToPose(23, 34, -121, 3000,{.forwards = false});
+    chassis.moveToPose(29.4,38.8,-107, 2750,{.forwards = false});
     chassis.waitUntilDone();
     clampState(true); 
-
+    //Move to 2nd ring stack next to goal & intake
+    chassis.moveToPose(34, 58, 3.5, 2350,{.forwards = true});
+    intake_motor.move(-127);
+    pros::delay(750);
+    chassis.waitUntilDone();
+    pros::delay(500); 
+    ladyBrown(50, 600);
+    //Move to ladder
+    chassis.moveToPoint(35, 33.6, 3000); //thetha -221
+    chassis.waitUntilDone();
+    ladyBrown(40, 600);
 
   /*  chassis.moveToPose(-1, 11, -10 , 1000, {.forwards = true}); //move to team stake
     pros::delay(500);
@@ -266,7 +277,6 @@ void red_pos() {
 }
 
 void red_neg() { //ring side
-
     chassis.moveToPoint(3, 7, 1000, {.forwards = true}); //move back towards team stake
     pros::delay(500);
     ladyBrown(127, 500); //scores onto it 
