@@ -4,7 +4,7 @@
 void runIntake(bool running, int power);
 void clampState (bool state);
 void intakeState (bool state);
-
+void blueSort();
 //Sides
 void blue_pos();
 void blue_neg();

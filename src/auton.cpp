@@ -2,17 +2,31 @@
 #include "main.h"
 #include "devices.h"
 #include "auton.h"
+void blueSort(){
+    //clampState(true);
+   intake_motor.move(-127);
+   Optical.set_led_pwm(50);
+   if(Optical.get_hue() > 130 && Optical.get_hue() < 220) {
+         Optical.get_gesture();
+        //intake_motor.brake();
+        //intake_motor.move(-50);
+       // pros::delay(1000);
+        intake_motor.move(127);
+        pros::delay(500);
+       // intake_motor.brake();
 
+      }
+}
 void blue_solo() {
   //  chassis.setPose(0,0,0);
     // Move to alliance stake
     chassis.moveToPoint(-0, 6, 600);
-    chassis.turnToHeading(-40, 600);
+    chassis.turnToHeading(-46, 600);
     pros::delay(300); 
     // Score on alliance stake
-    // ladyBrown(127, 650);
-    // pros::delay(200);
-    // ladyBrown(-127, 700); 
+    ladyBrown(127, 550);
+    pros::delay(200);
+    ladyBrown(-127, 700); 
     // Move back to mogo
   // chassis.moveToPose(30, -3, -61, 2600, {.forwards = false});
     chassis.moveToPose(54.7, -17.2, -60, 1100, {.forwards = false});
@@ -25,34 +39,36 @@ void blue_solo() {
     chassis.waitUntilDone();
     intake_motor.move(-127);
     chassis.moveToPose(29, -30, -173, 2550);
-    chassis.waitUntilDone();
+  //  chassis.waitUntilDone();
     pros::delay(550); 
     // Move to middle ring
-    chassis.moveToPose(13, 15, 0, 3000, {.forwards = true});//
+    chassis.moveToPose(13, 15, 0, 3100, {.forwards = true});//
+    //chassis.turnToPoint(13,15,2700);
+    //chassis.moveToPoint(13, 15, 2700);
     chassis.waitUntilDone();
     // Drop goal
-    chassis.moveToPoint(13, 27, 2700);
+    chassis.moveToPoint(13, 30, 2700, {.forwards = true});
     chassis.waitUntilDone();
     pros::delay(800);
     intake_motor.brake();
     clampState(false);
     // Move to other side goal
-    chassis.moveToPoint(13, 30, 780);
+    chassis.moveToPose(22, 39, -116, 780, {.forwards = false});
    //  chassis.turnToPoint(25, 34, 1000);
-    chassis.moveToPose(29.4,38.8,-107, 2750,{.forwards = false});
+    //chassis.moveToPose(29.4,38.8,-107, 2750,{.forwards = false});
     chassis.waitUntilDone();
     clampState(true); 
     //Move to 2nd ring stack next to goal & intake
-    chassis.moveToPose(34, 58, 3.5, 2350,{.forwards = true});
-    intake_motor.move(-127);
-    pros::delay(750);
-    chassis.waitUntilDone();
-    pros::delay(500); 
-    ladyBrown(50, 600);
-    //Move to ladder
-    chassis.moveToPoint(35, 33.6, 3000); //thetha -221
-    chassis.waitUntilDone();
-    ladyBrown(40, 600);
+    // chassis.moveToPose(27, 38, -180, 2350,{.forwards = true});
+    // intake_motor.move(-127);
+    // pros::delay(750);
+    // chassis.waitUntilDone();
+    // pros::delay(500); 
+    // ladyBrown(50, 600);
+    // // //Move to ladder
+    // // chassis.moveToPoint(35, 33.6, 3000); //thetha -221
+    // // chassis.waitUntilDone();
+    // // ladyBrown(40, 600);
 
   /*  chassis.moveToPose(-1, 11, -10 , 1000, {.forwards = true}); //move to team stake
     pros::delay(500);
@@ -312,9 +328,9 @@ void red_solo() {
     chassis.turnToHeading(40, 800);
     pros::delay(800); 
     // Score on alliance stake
-    // ladyBrown(127, 650);
-    // pros::delay(200);
-    // ladyBrown(-127, 700);
+    ladyBrown(127, 650);
+    pros::delay(200);
+    ladyBrown(-127, 700);
     // Move back to mogo
     chassis.moveToPose(-33, -7, 57, 2800, {.forwards = false});
     chassis.waitUntilDone();
@@ -339,7 +355,7 @@ void red_solo() {
     clampState(false);
     // Move to other side goal
     chassis.moveToPoint(-10, 45, 800);
-    chassis.moveToPose(-32, 43, 65, 2600,{.forwards = false});
+    chassis.moveToPose(-32, 43, 65, 2800,{.forwards = false});
     chassis.waitUntilDone();
     clampState(true);
     // Move to ring stack next to goal
@@ -347,10 +363,12 @@ void red_solo() {
    intake_motor.move(-127);
     pros::delay(900);
     chassis.waitUntilDone();
-    pros::delay(400);
+    pros::delay(500);
+    ladyBrown(30, 500);
+    pros::delay(300);
     // Move to ladder
     chassis.moveToPoint(-52, 52, 1800); 
-    ladyBrown(75, 500);
+    ladyBrown(30, 600);
   //  intake_motor.brake();
 
     /*

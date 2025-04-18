@@ -22,7 +22,7 @@ inline pros::adi::Pneumatics intakePiston('G', false);
 
 //Inertial Sensor
 inline pros::Imu imu(7);
-
+inline pros::Optical Optical(19);
 //Rotational Sensors
 
 inline pros::Rotation lb(15);

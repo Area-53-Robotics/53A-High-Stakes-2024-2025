@@ -83,7 +83,7 @@ void competition_initialize() {}
 ASSET(test_txt);
 
 void autonomous() {
-	blue_solo();
+	blueSort();
 
 }
 
@@ -121,6 +121,7 @@ void opcontrol() {
 	while (true) {
     	// Drivetrain
     	// Arcade Drive
+		Optical.enable_gesture();
     	int left =
         	master.get_analog(ANALOG_LEFT_Y) + master.get_analog(ANALOG_RIGHT_X);
     	int right =
@@ -186,11 +187,11 @@ void opcontrol() {
                 lbright_motor.move(((128*100)-lb.get_angle()) * 0.0357);
         }
         if (lbState == 3) {
-                lbleft_motor.move(((230*100)-lb.get_angle()) * 0.01);
-                lbright_motor.move(((230*100)-lb.get_angle()) * 0.01);
+                lbleft_motor.move(((180*100)-lb.get_angle()) * 0.01); //230, 0.01
+                lbright_motor.move(((180*100)-lb.get_angle()) * 0.01);
         }
 		if (lbState == 4) {
-                lbleft_motor.move(((253*100)-lb.get_angle()) * 0.0435);
+                lbleft_motor.move(((253*100)-lb.get_angle()) * 0.0435); 
                 lbright_motor.move(((253*100)-lb.get_angle()) * 0.0435);
         }
 		if (lbState == 5) {
