@@ -83,7 +83,7 @@ void competition_initialize() {}
 ASSET(test_txt);
 
 void autonomous() {
-	blueSort();
+	qualblue_pos();
 
 }
 
@@ -187,8 +187,8 @@ void opcontrol() {
                 lbright_motor.move(((128*100)-lb.get_angle()) * 0.0357);
         }
         if (lbState == 3) {
-                lbleft_motor.move(((180*100)-lb.get_angle()) * 0.01); //230, 0.01
-                lbright_motor.move(((180*100)-lb.get_angle()) * 0.01);
+                lbleft_motor.move(((180*100)-lb.get_angle()) * 0.01923); //230, 0.01
+                lbright_motor.move(((180*100)-lb.get_angle()) * 0.01923);
         }
 		if (lbState == 4) {
                 lbleft_motor.move(((253*100)-lb.get_angle()) * 0.0435); 

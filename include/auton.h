@@ -6,13 +6,14 @@ void clampState (bool state);
 void intakeState (bool state);
 void blueSort();
 //Sides
-void blue_pos();
+void blue_pos(); 
 void blue_neg();
 void red_pos();
 void red_neg();
 void skills();
 void blue_solo();
 void red_solo();
+void qualblue_pos();
 
 //Emergency
 void emergency_blue_pos();

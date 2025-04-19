@@ -119,9 +119,27 @@ void blue_solo() {
     clampState(true); */
 }
 
+void qualblue_pos() { //goalrush
+    //Move to stake for lebron mech
+    chassis.moveToPoint(0, 34, 1000);
+    chassis.swingToPoint(30, 75, DriveSide::LEFT, 800);
+    ladyBrown(45,500);
+    chassis.moveToPoint(30, 75, 225); //5, 43.5
+    pros::delay(500);
+    ladyBrown(82,700);
+    pros::delay(950);
+    chassis.moveToPoint(27, 83, 150);
+    chassis.turnToHeading(150,800);
+    pros::delay(100);
+    //Move to intake ring stack
+    ladyBrown(-82,700);
+    chassis.moveToPoint(7.5, 31, 600);
+    intake_motor.move(-127);
+    pros::delay(500);
+    intake_motor.brake();
+}
 
-
-void blue_pos() {
+void blue_pos() { //goalrush
 
     chassis.moveToPoint(0, -34, 1000, {.forwards = false}); //moves backwards next to stake
     chassis.turnToHeading(29, 200); //turns towards stake
