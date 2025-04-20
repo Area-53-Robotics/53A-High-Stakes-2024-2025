@@ -5,6 +5,7 @@ void runIntake(bool running, int power);
 void clampState (bool state);
 void intakeState (bool state);
 void blueSort();
+void intakeRun(int power, int timeout);
 //Sides
 void blue_pos(); 
 void blue_neg();
@@ -14,6 +15,7 @@ void skills();
 void blue_solo();
 void red_solo();
 void qualblue_pos();
+void qualred_pos();
 
 //Emergency
 void emergency_blue_pos();

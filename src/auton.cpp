@@ -120,23 +120,25 @@ void blue_solo() {
 }
 
 void qualblue_pos() { //goalrush
-    //Move to stake for lebron mech
+   //Move to stake for lebron mech
     chassis.moveToPoint(0, 34, 1000);
-    chassis.swingToPoint(30, 75, DriveSide::LEFT, 800);
-    ladyBrown(45,500);
-    chassis.moveToPoint(30, 75, 225); //5, 43.5
+    chassis.swingToPoint(31, 76, DriveSide::LEFT, 800); //30, 75
+    ladyBrown(47,500);
+    chassis.moveToPoint(31, 76, 214.25); //5, 43.5
     pros::delay(500);
+    chassis.waitUntilDone();
     ladyBrown(82,700);
     pros::delay(950);
     chassis.moveToPoint(27, 83, 150);
-    chassis.turnToHeading(150,800);
-    pros::delay(100);
+    chassis.turnToHeading(120,800);
+    pros::delay(600);
     //Move to intake ring stack
-    ladyBrown(-82,700);
     chassis.moveToPoint(7.5, 31, 600);
+    chassis.waitUntilDone();
+    ladyBrown(-82,700);
     intake_motor.move(-127);
     pros::delay(500);
-    intake_motor.brake();
+   // chassis.moveToPose(27, 35 , 320, 2500, {.forwards = false});
 }
 
 void blue_pos() { //goalrush
@@ -246,6 +248,23 @@ void blue_neg() {
     pros::delay(200);
     runIntake(true, 127);
     chassis.turnToHeading(-10, 500);
+
+}
+
+void qualred_pos() {
+    intakeRun(-100, 1000);
+    chassis.moveToPoint(-5, 46.5, 2000);
+    chassis.waitUntilDone();
+    ladyBrown(127, 1000);
+    // chassis.turnToHeading(-30,1000);
+    // intakeRun(-100, 5000);
+
+
+    
+    // chassis.turnToHeading(-35,500);
+    // chassis.waitUntilDone();
+    // chassis.moveToPoint(15, 42, 2000);
+
 
 }
 

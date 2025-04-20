@@ -35,3 +35,7 @@ void intakeState (bool state) {
 	intakePiston.set_value(state);
 	
 }
+
+void intakeRun (int power, int timeout) {
+	intake_motor.move(power);
+}
