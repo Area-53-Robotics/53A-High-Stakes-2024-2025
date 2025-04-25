@@ -2,6 +2,7 @@
 #include "devices.h"
 #include "auton.h"
 #include "lemlib/api.hpp"
+//#include "lemlib/pose.hpp"
 #include "ladyBrown.hpp"
 #include "pros/motors.h"
 
@@ -29,15 +30,17 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
+	/*
 	lbleft_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	lbright_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	// lb.set_position(0);
 	//pros::lcd::register_btn1_cb(on_center_button);
+	*/
     chassis.calibrate(); // calibrate sensors
-
+	imu.reset();
     // print position to brain screen
     pros::Task screen_task([&]() {
-        while (true) {
+        while(true) {
             // print robot location to the brain screen
             pros::lcd::print(0, "X: %f", chassis.getPose().x); // x
             pros::lcd::print(1, "Y: %f", chassis.getPose().y); // y
@@ -46,9 +49,21 @@ void initialize() {
             pros::delay(20);
         }
     });
-
 }
 
+/*
+void positionTrack (void * param) {
+	while (true) {
+		lemlib::Pose pose = chassis.getPose();
+		printf("X: %f, Y: %f, Theta: %f\n", pose.x, pose.y, pose.theta);
+		pros::lcd::print(0, "X: %f", pose.x); // x
+        pros::lcd::print(1, "Y: %f", pose.y); // y
+        pros::lcd::print(2, "Theta: %f", pose.theta); // heading
+        // delay to save resources
+        pros::delay(100);
+	}
+}
+*/
 /**
  * Runs while the robot is in the disabled state of Field Management System or
  * the VEX Competition Switch, following either autonomous or opcontrol. When
@@ -101,6 +116,9 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+
+	//pros::Task position_track_task(positionTrack, (void*)"PROS");
+
 	//Basic Power Variables
 	int max_power = 127;
 	int min_power = -127;
