@@ -256,26 +256,37 @@ void qualred_pos() {
     ladyBrown(26, 600);
     chassis.turnToHeading(16,400);
     pros::delay(500);
-    intakeRun(-120, 2500);
+    intakeRun(-115, 2550);
     chassis.moveToPoint(7.3, 38, 2000);
-    pros::delay(1705);
+    pros::delay(1700);
     intake_motor.brake();
   //Move to stake closest to white line for lebron mech
-    chassis.turnToHeading(-33, 400); //-43
+    chassis.turnToHeading(-35.5, 400); //-43
     pros::delay(500);
-    chassis.moveToPoint(4, 47, 2500); 
+    chassis.moveToPoint(4, 47.55, 2500); //4, 47
     chassis.waitUntilDone();
     pros::delay(500);
-    ladyBrown(127, 600);
+    ladyBrown(127, 500);
     pros::delay(800);
-    chassis.moveToPoint(2, 70, 150); //2, 50, 2500
+    chassis.moveToPoint(2, 71.5, 150); //2, 50, 2500
     pros::delay(500);
-    chassis.turnToHeading(-100, 700); 
+    chassis.turnToHeading(-105, 700); 
+    pros::delay(500);
+   // ladyBrown(-127,800);
     //Move to second stake close to ladder
     pros::delay(600);
-    chassis.moveToPose(-18, 22.8, 63/7, 3000, {.forwards = false}); 
-    pros::delay(5500); 
+    chassis.moveToPose(-16, 28, 8, 5000, {.forwards = false}); 
+    pros::delay(5200); 
     clampState(true);
+    chassis.waitUntilDone();
+    pros::delay(600);
+    intakeRun(-90, 3000);
+    //Move to ladder
+    ladyBrown(50, 500);
+    chassis.turnToHeading(-70, 600);
+    chassis.moveToPoint(-20, 32, 2500); 
+    ladyBrown(-90, 500);
+
 }
 
 void red_pos() {
@@ -363,10 +374,10 @@ void red_neg() { //ring side
     chassis.turnToHeading(-71, 1000);
     ladyBrown(127, 400);
     */
-    chassis.moveToPoint(-10, 0, 2000, {.forwards = true});
-    chassis.moveToPoint(-38, 67, 2000, {.forwards = true});
-    pros::delay(200);
-    runIntake(true, 127);
+    // chassis.moveToPoint(-10, 0, 2000, {.forwards = true});
+    // chassis.moveToPoint(-38, 67, 2000, {.forwards = true});
+    // pros::delay(200);
+    // runIntake(true, 127);
 
 }
 void red_solo() {
