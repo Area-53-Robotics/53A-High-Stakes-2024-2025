@@ -286,6 +286,19 @@ void qualred_pos() {
     chassis.turnToHeading(-70, 600);
     chassis.moveToPoint(-20, 32, 2500); 
     ladyBrown(-90, 500);
+    intakeRun(-100, 1000);
+    chassis.moveToPoint(-5, 46.5, 2000);
+    chassis.waitUntilDone();
+    ladyBrown(127, 1000);
+    // chassis.turnToHeading(-30,1000);
+    // intakeRun(-100, 5000);
+
+
+    
+    // chassis.turnToHeading(-35,500);
+    // chassis.waitUntilDone();
+    // chassis.moveToPoint(15, 42, 2000);
+
 
 }
 
