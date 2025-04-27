@@ -125,25 +125,66 @@ void blue_solo() {
 
 
 void qualblue_pos() { //goalrush
-   //Move to stake for lebron mech
-    chassis.moveToPoint(0, 34, 1000);
-    chassis.swingToPoint(31, 76, DriveSide::LEFT, 800); //30, 75
-    ladyBrown(47,500);
-    chassis.moveToPoint(31, 76, 214.25); //5, 43.5
+ //Move to ring stack
+    ladyBrown(26, 600); //moves up before intake
+    chassis.turnToHeading(7, 400);
     pros::delay(500);
+    intakeRun(-115, 2550);
+    chassis.moveToPoint(-2, 33, 2000);
+    pros::delay(1700);
+    intake_motor.brake();
+ // Move to stake closest to white line for lebron mech
+    chassis.turnToHeading(26, 900); 
+    pros::delay(500);
+    chassis.moveToPoint(1, 40, 2500);
     chassis.waitUntilDone();
-    ladyBrown(82,700);
-    pros::delay(950);
-    chassis.moveToPoint(27, 83, 150);
-    chassis.turnToHeading(120,800);
+    pros::delay(500);
+    ladyBrown(50, 3000); //onto stake
+    pros::delay(800);
+    chassis.moveToPoint(-1, 47, 600); 
+    pros::delay(500);
+    chassis.turnToHeading(-40, 700);
+    pros::delay(500);
+    ladyBrown(100, 900);
+    pros::delay(500);
+    ladyBrown(-30,800);
+    //Move to second stake close to ladder
     pros::delay(600);
-    //Move to intake ring stack
-    chassis.moveToPoint(7.5, 31, 600);
-    chassis.waitUntilDone();
-    ladyBrown(-82,700);
-    intake_motor.move(-127);
-    pros::delay(500);
-   // chassis.moveToPose(27, 35 , 320, 2500, {.forwards = false});
+    // ladyBrown(20,800);
+  //   chassis.moveToPose(-16, 28, 8, 5000, {.forwards = false});
+  //   pros::delay(4500);
+  //   ladyBrown(-30, 500);
+  //   clampState(true);
+  //   pros::delay(600);
+  //   chassis.waitUntilDone();
+  //   pros::delay(1000);
+  //   //Move to ladder
+  //   chassis.turnToHeading(-78, 600);
+  //   intakeRun(-127, 3000);
+  //   chassis.moveToPoint(-20, 36, 3500);
+  //   pros::delay(600);
+  //   ladyBrown(100, 500);
+
+
+  //  //Move to stake for lebron mech
+  //   chassis.moveToPoint(0, 34, 1000);
+  //   chassis.swingToPoint(31, 76, DriveSide::LEFT, 800); //30, 75
+  //   ladyBrown(47,500);
+  //   chassis.moveToPoint(31, 76, 214.25); //5, 43.5
+  //   pros::delay(500);
+  //   chassis.waitUntilDone();
+  //   ladyBrown(82,700);
+  //   pros::delay(950);
+  //   chassis.moveToPoint(27, 83, 150);
+  //   chassis.turnToHeading(120,800);
+  //   pros::delay(600);
+  //   //Move to intake ring stack
+  //   chassis.moveToPoint(7.5, 31, 600);
+  //   chassis.waitUntilDone();
+  //   ladyBrown(-82,700);
+  //   intake_motor.move(-127);
+  //   pros::delay(500);
+  //  // chassis.moveToPose(27, 35 , 320, 2500, {.forwards = false});
 }
 
 
@@ -276,31 +317,36 @@ void qualred_pos() {
     pros::delay(1700);
     intake_motor.brake();
   //Move to stake closest to white line for lebron mech
-    chassis.turnToHeading(-35.5, 400); //-43
+    chassis.turnToHeading(-40, 400); //-43, -35.5
     pros::delay(500);
     chassis.moveToPoint(4, 47.55, 2500); //4, 47
     chassis.waitUntilDone();
     pros::delay(500);
-    ladyBrown(127, 900);
+    ladyBrown(127, 1200);
     pros::delay(800);
-    chassis.moveToPoint(2, 71.75, 150); //2, 50, 2500
+    chassis.moveToPoint(3.75, 71.9, 150); //2, 50, 2500, x = 2, y = 71.75
     pros::delay(500);
-    chassis.turnToHeading(-105, 700);
+    chassis.turnToHeading(105, 700);
     pros::delay(500);
-    ladyBrown(127, 500);
-   // ladyBrown(-127,800);
+    ladyBrown(127, 600);
+    pros::delay(500);
+   // ladyBrown(-30,800);
     //Move to second stake close to ladder
     pros::delay(600);
+    ladyBrown(20,800);
     chassis.moveToPose(-16, 28, 8, 5000, {.forwards = false});
     pros::delay(4500);
+    ladyBrown(-30, 500);
     clampState(true);
-    chassis.waitUntilDone();
     pros::delay(600);
-    intakeRun(-90, 3000);
+    chassis.waitUntilDone();
+    pros::delay(1000);
     //Move to ladder
-    chassis.turnToHeading(-70, 600);
-    chassis.moveToPoint(-20, 32, 2500);
-    ladyBrown(-90, 500);
+    chassis.turnToHeading(-78, 600);
+    intakeRun(-127, 3000);
+    chassis.moveToPoint(-20, 36, 3500);
+    pros::delay(600);
+ //   ladyBrown(100, 500);
 
 
 }
