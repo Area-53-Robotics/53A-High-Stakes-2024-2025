@@ -127,43 +127,44 @@ void blue_solo() {
 void qualblue_pos() { //goalrush
  //Move to ring stack
     ladyBrown(26, 600); //moves up before intake
-    chassis.turnToHeading(7, 400);
+    chassis.moveToPoint(-2, 33, 1700);
     pros::delay(500);
-    intakeRun(-115, 2550);
-    chassis.moveToPoint(-2, 33, 2000);
+    intakeRun(-63, 400);
+    chassis.turnToHeading(7, 400);
     pros::delay(1700);
     intake_motor.brake();
+    chassis.waitUntilDone();
  // Move to stake closest to white line for lebron mech
-    chassis.turnToHeading(26, 900); 
+    chassis.moveToPoint(2, 43, 1800);
     pros::delay(500);
-    chassis.moveToPoint(1, 40, 2500);
+    chassis.turnToHeading(40, 900); 
     chassis.waitUntilDone();
     pros::delay(500);
-    ladyBrown(50, 3000); //onto stake
+    ladyBrown(70, 2500); //onto stake
     pros::delay(800);
-    chassis.moveToPoint(-1, 47, 600); 
+    chassis.moveToPoint(-1, 50, 600); 
     pros::delay(500);
-    chassis.turnToHeading(-40, 700);
+    chassis.turnToHeading(-50, 700);
     pros::delay(500);
-    ladyBrown(100, 900);
+   // ladyBrown(100, 600);
     pros::delay(500);
-    ladyBrown(-30,800);
+    ladyBrown(-30,800); // moves it up back
     //Move to second stake close to ladder
     pros::delay(600);
-    // ladyBrown(20,800);
-  //   chassis.moveToPose(-16, 28, 8, 5000, {.forwards = false});
-  //   pros::delay(4500);
-  //   ladyBrown(-30, 500);
-  //   clampState(true);
-  //   pros::delay(600);
-  //   chassis.waitUntilDone();
-  //   pros::delay(1000);
-  //   //Move to ladder
-  //   chassis.turnToHeading(-78, 600);
-  //   intakeRun(-127, 3000);
-  //   chassis.moveToPoint(-20, 36, 3500);
-  //   pros::delay(600);
-  //   ladyBrown(100, 500);
+//   ladyBrown(20,800);
+    chassis.moveToPose(15, 32, -14, 2500, {.forwards = false});
+    pros::delay(4500);
+  //  ladyBrown(-30, 500);
+    clampState(true);
+    pros::delay(1000);
+    chassis.waitUntilDone();
+    pros::delay(1000);
+  //  Move to ladder
+    chassis.turnToHeading(77, 600);
+    intakeRun(-127, 3000);
+    chassis.moveToPoint(20, 30, 3500); //18, 28
+    pros::delay(1000);
+    ladyBrown(35, 500); //moves it onto ladder
 
 
   //  //Move to stake for lebron mech
