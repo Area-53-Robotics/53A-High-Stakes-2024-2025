@@ -188,7 +188,27 @@ void qualblue_pos() { //goalrush
   //  // chassis.moveToPose(27, 35 , 320, 2500, {.forwards = false});
 }
 
-
+void qualblue_neg() {
+  chassis.moveToPoint(-0, 6, 600);
+    chassis.turnToHeading(-46, 600);
+    pros::delay(300);
+    // Score on alliance stake
+    ladyBrown(127, 550);
+    pros::delay(200);
+    ladyBrown(-127, 700);
+    // Move back to mogo
+  // chassis.moveToPose(30, -3, -61, 2600, {.forwards = false});
+    chassis.moveToPose(54.7, -17.2, -60, 1100, {.forwards = false});
+    chassis.waitUntilDone();
+    // Clamp mogo
+    clampState(true);
+    pros::delay(250); //leave this time for now
+    // Move to ring and intake
+    chassis.turnToPoint(29, -30, 550);
+    chassis.waitUntilDone();
+    intake_motor.move(-127);
+    chassis.moveToPose(29, -30, -173, 2550); 
+}
 void blue_pos() { //goalrush
 
 
