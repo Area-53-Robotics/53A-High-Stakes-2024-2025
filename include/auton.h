@@ -17,7 +17,7 @@ void red_solo();
 void qualblue_pos();
 void qualred_pos();
 void qualblue_neg();
-
+void qualred_neg();
 //Emergency
 void emergency_blue_pos();
 void emergency_blue_neg();

@@ -188,27 +188,36 @@ void qualblue_pos() { //goalrush
   //  // chassis.moveToPose(27, 35 , 320, 2500, {.forwards = false});
 }
 
-void qualblue_neg() {
+void qualblue_neg() { //ringrush
   chassis.moveToPoint(-0, 6, 600);
     chassis.turnToHeading(-46, 600);
     pros::delay(300);
     // Score on alliance stake
-    ladyBrown(127, 550);
-    pros::delay(200);
-    ladyBrown(-127, 700);
+    ladyBrown(115, 515);
+    pros::delay(500);
+    ladyBrown(-127, 900);
     // Move back to mogo
   // chassis.moveToPose(30, -3, -61, 2600, {.forwards = false});
     chassis.moveToPose(54.7, -17.2, -60, 1100, {.forwards = false});
     chassis.waitUntilDone();
+    pros::delay(600);
+    chassis.waitUntilDone();
     // Clamp mogo
     clampState(true);
-    pros::delay(250); //leave this time for now
+    pros::delay(350); //leave this time for now
     // Move to ring and intake
     chassis.turnToPoint(29, -30, 550);
     chassis.waitUntilDone();
     intake_motor.move(-127);
     chassis.moveToPose(29, -30, -173, 2550); 
-}
+    //move to first & second ring at ring stack
+    chassis.moveToPose(47, -40, -253, 2550); 
+    chassis.moveToPoint(32, -37, 950, {.forwards = false}); //theta = -268
+    chassis.moveToPoint(50, -35, 1200, {.forwards = true}); //theta = -270
+    pros::delay(1000);
+    ladyBrown(100, 500);
+    chassis.moveToPose(50, -8, -307, 3500, {.forwards = true}); //55
+}   
 void blue_pos() { //goalrush
 
 
@@ -371,7 +380,37 @@ void qualred_pos() {
 
 
 }
-
+void qualred_neg(){
+  chassis.moveToPoint(0, 6, 700);
+    chassis.turnToHeading(40, 700);
+    pros::delay(700);
+    // Score on alliance stake
+    ladyBrown(127, 650);
+    pros::delay(200);
+    ladyBrown(-127, 700);
+  //  Move back to mogo
+    chassis.moveToPose(-31, -7, 66, 2500, {.forwards = false});
+    chassis.waitUntilDone();
+    // Clamp mogo
+    clampState(true);
+    pros::delay(300);
+    // Move to ring and intake
+    chassis.turnToPoint(-36, -28.4, 800);
+   // chassis.waitUntilDone();
+    intake_motor.move(-120);
+    chassis.moveToPose(-39, -30, 180, 2800);
+    chassis.waitUntilDone();
+    pros::delay(800);
+    //Move to ring stacks 
+    chassis.moveToPose(-52, -35, 255, 2500);
+    chassis.moveToPoint(-40, -31, 900, {.forwards = false}); 
+    chassis.moveToPoint(-53,-31,1100, {.forwards = true});
+  //  chassis.moveToPoint(-53, -21, 950, {.forwards = true}); //theta = 275
+    pros::delay(1000);
+   // Move to ladder
+    ladyBrown(127, 550);
+    chassis.moveToPoint(-50, -8, 2800, {.forwards = true}); //55
+}
 
 void red_pos() {
 
@@ -472,6 +511,7 @@ void red_neg() { //ring side
 
 
 }
+
 void red_solo() {
     // Move to alliance stake
     chassis.moveToPoint(0, 6, 800);
