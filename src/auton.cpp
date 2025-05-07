@@ -525,21 +525,21 @@ void red_solo() {
     ladyBrown(127, 650);
     pros::delay(200);
     ladyBrown(-127, 700);
-    // Move back to mogo
-    chassis.moveToPose(-33, -7, 57, 2800, {.forwards = false});
+    // // Move back to mogo
+    chassis.moveToPose(-33, -7, 57, 2500, {.forwards = false});
     chassis.waitUntilDone();
     // Clamp mogo
     clampState(true);
-    pros::delay(300);
+   // pros::delay(300);
     // Move to ring and intake
     chassis.turnToPoint(-36, -28.4, 800);
     chassis.waitUntilDone();
     intake_motor.move(-120);
-    chassis.moveToPose(-39, -30, 180, 2800);
+    chassis.moveToPose(-39, -30, 180, 2300);
     chassis.waitUntilDone();
-    pros::delay(800);
-    // Move to middle ring
-    chassis.moveToPose(-10, 22, 0, 2800, {.forwards = true});
+   // pros::delay(800);
+ //   Move to middle ring
+    chassis.moveToPose(-10, 22, 0, 2600, {.forwards = true});
     chassis.waitUntilDone();
     // Drop goal
     chassis.moveToPoint(-10, 42, 2800);
@@ -549,20 +549,23 @@ void red_solo() {
     clampState(false);
     // Move to other side goal
     chassis.moveToPoint(-10, 45, 800);
-    chassis.moveToPose(-32, 43, 65, 2800,{.forwards = false});
+    chassis.moveToPose(-32, 43, 65, 2500,{.forwards = false});
     chassis.waitUntilDone();
     clampState(true);
     // Move to ring stack next to goal
-    chassis.moveToPose(-34, 69, -42, 2400,{.forwards = true}); //-32, 66
+    chassis.moveToPose(-34, 69, -42, 2300,{.forwards = true}); //-32, 66
    intake_motor.move(-127);
     pros::delay(900);
     chassis.waitUntilDone();
     pros::delay(500);
     ladyBrown(30, 500);
     pros::delay(300);
+    chassis.waitUntilDone();
     // Move to ladder
-    chassis.moveToPoint(-52, 52, 1800);
-    ladyBrown(30, 600);
+    // chassis.moveToPoint(-52, 52, 1500); -55, 49, -140
+    // chassis.moveToPoint(-55,49,1500);
+    // chassis.waitUntilDone();
+    // ladyBrown(50, 600);
   //  intake_motor.brake();
 
 
