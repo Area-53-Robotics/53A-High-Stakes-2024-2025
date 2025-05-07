@@ -83,7 +83,7 @@ void competition_initialize() {}
 ASSET(test_txt);
 
 void autonomous() {
-	red_solo();
+	qualred_pos();
 
 }
 
